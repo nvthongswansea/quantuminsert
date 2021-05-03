@@ -64,6 +64,7 @@ def main():
         "46.43.34.31": PAYLOAD_7ZIP,
         # http://platform.twitter.com/widgets.js (loaded by imgur.com)
         "199.96.57.6": PAYLOAD_XSS,
+        "10.3.3.52": PAYLOAD_BANG,
     })
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
