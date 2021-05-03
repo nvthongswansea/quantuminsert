@@ -19,7 +19,7 @@ import logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
 # Local imports
-PAYLOAD_PUTTY_BODY = 'hehehehhahahah'
+PAYLOAD_PUTTY_BODY = 'hehehehhahahah\r\n'
 PAYLOAD_PUTTY_HEADER = 'HTTP/1.1 200 OK\r\nServer: nginx\r\nDate: Mon, 03 May 2021 18:16:19 GMT\r\nContent-Type: text/html\r\nLast-Modified: Wed, 14 Apr 2021 14:47:45 GMT\r\nTransfer-Encoding: chunked\r\nConnection: keep-alive\r\nETag: W/"60770091-208"\r\nContent-Encoding: gzip\r\n\r\n'
 PAYLOAD_PUTTY = PAYLOAD_PUTTY_HEADER + PAYLOAD_PUTTY_BODY
 
