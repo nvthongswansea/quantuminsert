@@ -32,7 +32,7 @@ class QI(object):
         p = IP(src=src, dst=dst) / TCP(sport=sport, dport=dport,
                                        seq=seq+1, ack=ack, flags="PA") / payload
         send(p)
-        sendp(packet, iface="eth0")
+        sendp(p, iface="eth0")
         print('Shooting: %r' % p)
 
 
