@@ -19,10 +19,8 @@ import logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 
 # Local imports
-PAYLOAD_PUTTY_BODY = '<!doctype html>\r\n<html lang="en">\r\n<head>\r\n<meta charset="utf-8">\r\n<title>NetSec PuTTY download</title>\r\n</head>\r\n<body>\r\n<h1>NetSec PuTTY Client Download</h1>\r\n<p>Download our secure PuTTY client here:</p>\r\n<p id="putty_download"><a href="http://cantillon.netsec.seclab-bonn.de">putty-64bit-0.71-installer.msi</a> (SHA-256: aa)</p>\r\n<p>Do not forget to verify the hash after downloading the installer CCCCCCCCCCCC!</p>\r\n</body>\r\n</html>\r\n'
-PAYLOAD_PUTTY_HEADER = 'HTTP/1.1 200 OK\r\nServer: nginx\r\nDate: Mon, 03 May 2021 17:29:05 GMT\r\nContent-Type: text/html\r\nContent-Length: ' + \
-    str(len(PAYLOAD_PUTTY_BODY)) + \
-    '\r\nLast-Modified: Wed, 14 Apr 2021 14:47:45 GMT\r\nConnection: keep-alive\r\nETag: "60770091-208"\r\nAccept-Ranges: bytes\r\n\r\n'
+PAYLOAD_PUTTY_BODY = 'hehehehhahahah'
+PAYLOAD_PUTTY_HEADER = 'HTTP/1.1 200 OK\r\nServer: nginx\r\nDate: Mon, 03 May 2021 18:16:19 GMT\r\nContent-Type: text/html\r\nLast-Modified: Wed, 14 Apr 2021 14:47:45 GMT\r\nTransfer-Encoding: chunked\r\nConnection: keep-alive\r\nETag: W/"60770091-208"\r\nContent-Encoding: gzip\r\n\r\n'
 PAYLOAD_PUTTY = PAYLOAD_PUTTY_HEADER + PAYLOAD_PUTTY_BODY
 
 
