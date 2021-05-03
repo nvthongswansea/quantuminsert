@@ -53,7 +53,7 @@ def main():
 
     while True:
         line = sys.stdin.readline()
-        print(line.strip())
+        print("monitoring: ", line.strip())
         if args.tshark:
             seq, ack, src, sport, dst, dport, size, host, cookie = line.split(
                 "\t")
