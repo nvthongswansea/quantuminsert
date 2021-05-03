@@ -16,6 +16,7 @@
 # Python imports
 import re
 import sys
+from scapy.all import *
 
 # Shared data
 
