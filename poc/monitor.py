@@ -21,12 +21,14 @@ import argparse
 import collections
 
 # Shared data
-QuantumTip = collections.namedtuple("QuantumTip", "src dst sport dport seq ack")
+QuantumTip = collections.namedtuple(
+    "QuantumTip", "src dst sport dport seq ack")
 TIP_STRUCT = "IIHHII"
 TIP_LEN = struct.calcsize(TIP_STRUCT)
 
 # This regex may vary by tcpdump versions and/or operating systems
-REGEX_SYNACK = re.compile("([\d\.]+)\.(\d+) > ([\d\.]+)\.(\d+): Flags.*seq (\d+), ack (\d+)")
+REGEX_SYNACK = re.compile(
+    "([\d\.]+)\.(\d+) > ([\d\.]+)\.(\d+): Flags.*seq (\d+), ack (\d+)")
 
 
 def main():
@@ -47,19 +49,21 @@ def main():
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-    print 'Monitor ready to tip %s:%u' % (args.shooter, args.port)
+    print('Monitor ready to tip %s:%u' % (args.shooter, args.port))
 
     while True:
         line = sys.stdin.readline()
-        print line.strip()
+        print(line.strip())
         if args.tshark:
-            seq, ack, src, sport, dst, dport, size, host, cookie = line.split("\t")
+            seq, ack, src, sport, dst, dport, size, host, cookie = line.split(
+                "\t")
             src, sport, dst, dport = dst, dport, src, sport
             seq, ack = ack, seq
             seq = int(seq) - 1
             ack = int(ack)
         else:
-            src, sport, dst, dport, seq, ack = REGEX_SYNACK.search(line).groups()
+            src, sport, dst, dport, seq, ack = REGEX_SYNACK.search(
+                line).groups()
 
         # print src, sport, dst, dport, seq, ack
         tip = QuantumTip(
@@ -72,7 +76,8 @@ def main():
         )
         data = struct.pack(TIP_STRUCT, *tip._asdict().values())
         sock.sendto(data, (args.shooter, args.port))
-        print 'Sending', tip
+        print('Sending', tip)
+
 
 if __name__ == '__main__':
     sys.exit(main())
