@@ -50,6 +50,8 @@ def main():
 
     args = parser.parse_args()
 
+    qi = QI()
+
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind((args.listen, args.port))
 
