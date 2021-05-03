@@ -27,11 +27,6 @@ PAYLOAD_PUTTY = PAYLOAD_PUTTY_HEADER + PAYLOAD_PUTTY_BODY
 
 
 class QI(object):
-    sock = None
-
-    def __init__(self, selectors):
-        self.selectors = selectors
-
     def inject(self, src, dst, sport, dport, seq, ack):
         payload = PAYLOAD_PUTTY
         p = IP(src=src, dst=dst) / TCP(sport=sport, dport=dport,
