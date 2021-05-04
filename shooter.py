@@ -26,7 +26,7 @@ REGEX_SYNACK = re.compile(
     "([\d\.]+)\.(\d+) > ([\d\.]+)\.(\d+): Flags.*seq (\d+), ack (\d+)")
 
 
-PAYLOAD_PUTTY_BODY = '<!doctype html>\r\n<html lang="en">\r\n<head>\r\n  <meta charset="utf-8">\r\n  <title>NetSec PuTTY download</title>\r\n</head>\r\n\r\n<body>\r\n  <h1>NetSec PuTTY Client Download</h1>\r\n  <p>Download our secure PuTTY client here:</p>\r\n  <p id="putty_download"><a href="https://the.earth.li/~sgtatham/putty/0.74/w64/putty-64bit-0.74-installer.msi">putty-64bit-0.71-installer.msi</a> (SHA-256: A76DD5040FB8BD78A4A5ACBF445741A2)</p>\r\n  <p>Do not forget to verify the hash after downloading the installer!</p>\r\n</body>\r\n</html>\r\n'
+PAYLOAD_PUTTY_BODY = '<!doctype html>\r\n<html lang="en">\r\n<head>\r\n  <meta charset="utf-8">\r\n  <title>NetSec PuTTY download</title>\r\n</head>\r\n\r\n<body>\r\n  <h1>NetSec PuTTY Client Download</h1>\r\n  <p>Download our secure PuTTY client here:</p>\r\n  <p id="putty_download"><a href="https://the.earth.li/~sgtatham/putty/0.74/w64/putty-64bit-0.74-installer.msi">putty-64bit-0.71-installer.msi</a> (SHA-256: 2a001dd1c5d81ae1c17db97b0bb6c2c7cada43888d4f30a814c18d55aa28feb6)</p>\r\n  <p>Do not forget to verify the hash after downloading the installer!</p>\r\n</body>\r\n</html>\r\n'
 PAYLOAD_PUTTY_HEADER = 'HTTP/1.1 200 OK\r\nServer: nginx\r\nDate: Mon, 03 May 2021 18:16:19 GMT\r\nContent-Type: text/html\r\nLast-Modified: Wed, 14 Apr 2021 14:47:45 GMT\r\nConnection: keep-alive\r\nETag: W/"60770091-208"\r\n\r\n'
 PAYLOAD_PUTTY = PAYLOAD_PUTTY_HEADER + PAYLOAD_PUTTY_BODY
 
